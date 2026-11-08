@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>House of Fades</title>
+<meta name="description" content="House of Fades is a premium barber in Orange, NSW. Skin fades, tapers and full grooming. Request a booking online or by WhatsApp, SMS or Instagram.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HairSalon","name":"House of Fades","description":"Premium barber in Orange, NSW. Skin fades, tapers and full grooming. Booking requests accepted across NSW.","telephone":"+61466707688","areaServed":{"@type":"State","name":"New South Wales"},"address":{"@type":"PostalAddress","addressLocality":"Orange","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://www.instagram.com/houseoffades23","https://www.tiktok.com/@houseoffades23"],"priceRange":"$50-$120"}
+</script>
+<style>
+/* Layout: black one-page site. Sticky bar, type-led hero where the word FADES fades out, then styles, pricing, booking form, reviews, FAQ, area, footer. */
+:root {
+  --black: #0A0A0A;
+  --panel: #151515;
+  --line: #2E2A22;
+  --white: #F6F3EC;
+  --muted: #A59F92;
+  --gold: #C9A24B;
+  --gold-hi: #E6C874;
+  --gold-ink: #15110A;
+  --danger: #FF8A73;
+  --f-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--black); color: var(--white);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.55; margin: 0;
+  padding-block: 0 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1100px; margin: 0 auto; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--gold-hi); outline-offset: 3px; }
+
+/* bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--black); border-bottom: 1px solid var(--line);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--black); z-index: 30; }
+.bar-in { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { font-family: var(--f-display); font-weight: 800; font-size: 26px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+.brand b { color: var(--gold); font-weight: 800; }
+.bar nav { display: flex; gap: 22px; align-items: center; }
+.bar nav a.link { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 15px; }
+.bar nav a.link:hover { color: var(--white); }
+@media (max-width: 760px) { .bar nav a.link { display: none; } }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 2px; border: 1.5px solid var(--gold);
+  background: transparent; color: var(--white); font-family: var(--f-display); font-weight: 700; font-size: 18px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; cursor: pointer; text-align: center; }
+.btn:hover { border-color: var(--gold-hi); color: var(--gold-hi); }
+.btn.gold { background: var(--gold); color: var(--gold-ink); }
+.btn.gold:hover { background: var(--gold-hi); color: var(--gold-ink); }
+.btn.big { min-height: 58px; padding-inline: 34px; font-size: 22px; }
+.btn.small { min-height: 40px; padding: 8px 14px; font-size: 15px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: background-color .15s, color .15s, border-color .15s; } }
+
+/* hero */
+.hero { padding-block: 64px 56px; display: grid; gap: 28px; }
+.kicker { font-family: var(--f-display); font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); font-size: 16px; margin: 0; }
+.hero h1 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; margin: 0; line-height: .82; letter-spacing: .01em; font-size: clamp(76px, 20vw, 220px); }
+.hero h1 .l1 { display: block; }
+.hero h1 .l2 { display: block; background: linear-gradient(180deg, var(--gold-hi) 0%, var(--gold) 38%, rgba(201,162,75,.0) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding-bottom: .06em; }
+.hero p.lead { max-width: 52ch; font-size: 20px; color: var(--white); margin: 0; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.contact-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px; }
+.contact-row .btn { width: 100%; }
+
+/* sections */
+section.s { padding-block: 64px; border-top: 1px solid var(--line); }
+.s h2 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; letter-spacing: .04em; font-size: clamp(38px, 6vw, 60px); line-height: 1; margin: 0 0 8px; text-wrap: balance; }
+.s h2 em { font-style: normal; color: var(--gold); }
+.sub { color: var(--muted); max-width: 60ch; margin: 0 0 32px; }
+
+/* styles gallery */
+.grid3 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.tile { position: relative; aspect-ratio: 4 / 3; max-width: 100%; border: 1px solid var(--line); background:
+  linear-gradient(180deg, rgba(201,162,75,.0) 0%, rgba(10,10,10,.85) 100%),
+  repeating-linear-gradient(90deg, #1A1A1A 0 3px, #121212 3px 6px); display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; overflow: hidden; }
+.tile .name { font-family: var(--f-display); font-weight: 700; font-size: 28px; letter-spacing: .06em; text-transform: uppercase; }
+.tile .ph { color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.tile::after { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
+
+/* pricing */
+.prices { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.price { border: 1px solid var(--line); background: var(--panel); padding: 24px 22px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.price.top { border-color: var(--gold); }
+.price h3 { font-family: var(--f-display); font-weight: 700; font-size: 24px; letter-spacing: .06em; text-transform: uppercase; margin: 0; line-height: 1.1; }
+.price .amt { font-family: var(--f-display); font-weight: 800; font-size: 64px; line-height: 1; color: var(--gold); }
+.price p { margin: 0; color: var(--muted); font-size: 16px; }
+.price .btn { margin-top: 6px; }
+.price .tag { font-family: var(--f-display); letter-spacing: .18em; text-transform: uppercase; font-size: 13px; color: var(--gold-ink); background: var(--gold); padding: 2px 8px; justify-self: start; font-weight: 700; }
+
+/* booking */
+.book { display: grid; gap: 28px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 900px) { .book { grid-template-columns: minmax(0, 1fr) 340px; } .quote { position: sticky; top: 84px; } }
+form.req { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); min-width: 0; }
+.field { display: grid; gap: 6px; min-width: 0; align-content: start; }
+.field.full { grid-column: 1 / -1; }
+.field > label, .field > .lab { font-family: var(--f-display); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 15px; color: var(--gold); }
+input, select, textarea { width: 100%; min-width: 0; background: var(--panel); border: 1.5px solid var(--line); border-radius: 2px; padding: 13px 14px; color: var(--white); color-scheme: dark; }
+input::placeholder, textarea::placeholder { color: #756F63; }
+input:focus, select:focus, textarea:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 3px rgba(201,162,75,.35); }
+textarea { min-height: 96px; resize: vertical; }
+.split { display: grid; gap: 12px; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
+.methods input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.methods label { display: flex; align-items: center; justify-content: center; min-height: 48px; border: 1.5px solid var(--line); background: var(--panel); border-radius: 2px; cursor: pointer; font-weight: 600; font-size: 15px; text-align: center; padding: 6px; color: var(--white); text-transform: none; letter-spacing: 0; font-family: var(--f-body); }
+.methods input:checked + label { border-color: var(--gold); background: rgba(201,162,75,.16); color: var(--gold-hi); }
+.methods input:focus-visible + label { outline: 3px solid var(--gold-hi); outline-offset: 2px; }
+.err { color: var(--danger); margin: 0; min-height: 1.4em; font-size: 15px; grid-column: 1 / -1; }
+.quote { border: 1px solid var(--gold); background: var(--panel); padding: 22px; display: grid; gap: 12px; min-width: 0; }
+.quote h3 { font-family: var(--f-display); font-size: 24px; letter-spacing: .08em; text-transform: uppercase; margin: 0; color: var(--gold); }
+.quote .row { display: flex; justify-content: space-between; gap: 14px; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
+.quote .row span:first-child { color: var(--muted); }
+.quote .row span:last-child { text-align: right; font-weight: 600; overflow-wrap: anywhere; min-width: 0; }
+.quote .tot { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--f-display); font-weight: 800; font-size: 40px; }
+.quote .tot span:last-child { color: var(--gold); }
+.quote small { color: var(--muted); font-size: 14px; }
+
+/* confirmation */
+.done { border: 1px solid var(--gold); background: var(--panel); padding: 32px; display: grid; gap: 18px; max-width: 720px; min-width: 0; }
+.done h3 { font-family: var(--f-display); font-weight: 800; font-size: clamp(36px, 6vw, 54px); text-transform: uppercase; margin: 0; line-height: 1; }
+.done .ref { font-family: var(--f-display); font-weight: 700; font-size: 26px; letter-spacing: .2em; color: var(--gold); }
+.done dl { margin: 0; display: grid; gap: 8px; }
+.done dl div { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px dashed var(--line); padding-bottom: 6px; }
+.done dt { color: var(--muted); }
+.done dd { margin: 0; font-weight: 600; text-align: right; overflow-wrap: anywhere; min-width: 0; }
+.done textarea { min-height: 150px; font-size: 15px; }
+.done .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.note { color: var(--muted); font-size: 15px; margin: 0; }
+.note.ok { color: var(--gold-hi); }
+
+/* reviews, faq, area */
+.empty-card { border: 1px dashed var(--gold); padding: 28px; display: grid; gap: 14px; max-width: 640px; }
+.empty-card p { margin: 0; }
+details { border-bottom: 1px solid var(--line); padding-block: 4px; }
+details:first-of-type { border-top: 1px solid var(--line); }
+summary { cursor: pointer; font-family: var(--f-display); font-weight: 700; font-size: 24px; letter-spacing: .04em; text-transform: uppercase; padding-block: 14px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--gold); font-size: 28px; line-height: 1; }
+details[open] summary::after { content: "\2212"; }
+details p { margin: 0 0 16px; color: var(--muted); max-width: 66ch; }
+.area { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.area .box { border: 1px solid var(--line); background: var(--panel); padding: 24px; min-width: 0; }
+.area h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 24px; margin: 0 0 8px; color: var(--gold); }
+.area p { margin: 0; color: var(--muted); }
+
+/* staff */
+.staff { border-top: 1px solid var(--gold); padding-block: 40px; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 14px 8px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-family: var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+td button { background: none; border: 0; color: var(--danger); text-decoration: underline; cursor: pointer; padding: 0; }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px 8px; display: grid; gap: 16px; color: var(--muted); font-size: 15px; }
+footer .brand { color: var(--white); }
+
+/* floating whatsapp */
+.fab { position: fixed; z-index: 25; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); min-height: 54px; padding: 12px 20px; border-radius: 999px; background: var(--gold); color: var(--gold-ink); font-family: var(--f-display); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; box-shadow: 0 6px 24px rgba(0,0,0,.6); }
+.fab:hover { background: var(--gold-hi); }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top" aria-label="House of Fades home">House of <b>Fades</b></a>
+    <nav aria-label="Main">
+      <a class="link" href="#styles">Styles</a>
+      <a class="link" href="#pricing">Pricing</a>
+      <a class="link" href="#area">Area</a>
+      <a class="link" href="#faq">FAQ</a>
+      <a class="btn gold small" href="#booking">Book now</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap" id="top">
+  <main>
+    <div class="hero">
+      <p class="kicker">Barber &middot; Orange, NSW</p>
+      <h1><span class="l1">House of</span><span class="l2">Fades</span></h1>
+      <p class="lead">Sharp cuts and clean fades from a barber based in Orange, NSW. Send a booking request in a minute, from anywhere in NSW.</p>
+      <div class="ctas">
+        <a class="btn gold big" href="#booking">Book your appointment</a>
+        <a class="btn big" href="#pricing">See pricing</a>
+      </div>
+      <div class="contact-row" aria-label="Contact House of Fades">
+        <a class="btn" data-link="wa" target="_blank" rel="noopener">WhatsApp booking</a>
+        <a class="btn" data-link="ig" target="_blank" rel="noopener">Instagram DM</a>
+        <a class="btn" data-link="tt" target="_blank" rel="noopener">TikTok profile</a>
+        <a class="btn" data-link="sms" href="sms:0466707688">SMS 0466 707 688</a>
+      </div>
+    </div>
+
+    <section class="s" id="styles">
+      <h2>Haircut <em>styles</em></h2>
+      <p class="sub">The cuts House of Fades is known for. Real photos of the barber's work go in these frames.</p>
+      <div class="grid3">
+        <div class="tile"><span class="ph">Photo to add</span><span class="name">Skin fade</span></div>
+        <div class="tile"><span class="ph">Photo to add</span><span class="name">Low taper</span></div>
+        <div class="tile"><span class="ph">Photo to add</span><span class="name">Mid fade</span></div>
+        <div class="tile"><span class="ph">Photo to add</span><span class="name">High fade</span></div>
+        <div class="tile"><span class="ph">Photo to add</span><span class="name">Textured crop</span></div>
+        <div class="tile"><span class="ph">Photo to add</span><span class="name">Colour and tint</span></div>
+      </div>
+    </section>
+
+    <section class="s" id="pricing">
+      <h2>Services and <em>pricing</em></h2>
+      <p class="sub">Four options. Pick one when you book and the price shows straight away.</p>
+      <div class="prices" id="priceCards"></div>
+    </section>
+
+    <section class="s" id="booking">
+      <h2>Request your <em>appointment</em></h2>
+      <p class="sub">This sends a booking request. Your time is not locked in until House of Fades confirms it with you.</p>
+      <div id="bookArea">
+        <div class="book">
+          <form class="req" id="form" novalidate>
+            <div class="field full"><label for="service">Service</label>
+              <select id="service"></select></div>
+            <div class="field"><label for="name">Full name</label>
+              <input id="name" autocomplete="name" maxlength="80" placeholder="Your full name"></div>
+            <div class="field"><label for="phone">Mobile number</label>
+              <input id="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="04xx xxx xxx"></div>
+            <div class="field full"><div class="split">
+              <div class="field"><label for="suburb">Suburb</label><input id="suburb" autocomplete="address-level2" maxlength="60" placeholder="e.g. Orange"></div>
+              <div class="field"><label for="postcode">Postcode</label><input id="postcode" inputmode="numeric" autocomplete="postal-code" maxlength="4" placeholder="2800"></div>
+            </div></div>
+            <div class="field"><label for="date">Preferred date</label>
+              <input id="date" type="date"></div>
+            <div class="field"><label for="time">Preferred time</label>
+              <select id="time"></select></div>
+            <div class="field full"><span class="lab" id="methodLab">How should we contact you?</span>
+              <div class="methods" role="radiogroup" aria-labelledby="methodLab">
+                <input type="radio" name="method" id="m-wa" value="WhatsApp" checked><label for="m-wa">WhatsApp</label>
+                <input type="radio" name="method" id="m-sms" value="SMS"><label for="m-sms">SMS</label>
+                <input type="radio" name="method" id="m-ig" value="Instagram DM"><label for="m-ig">Instagram DM</label>
+                <input type="radio" name="method" id="m-call" value="Phone call"><label for="m-call">Phone call</label>
+              </div></div>
+            <div class="field full"><label for="notes">Additional instructions (optional)</label>
+              <textarea id="notes" maxlength="400" placeholder="Style you want, products you are bringing, anything else"></textarea></div>
+            <p class="err" id="err" role="alert"></p>
+            <div class="field full"><button class="btn gold big" id="submit" type="submit">Submit booking request</button></div>
+          </form>
+          <aside class="quote" aria-live="polite">
+            <h3>Your request</h3>
+            <div class="row"><span>Service</span><span id="qService"></span></div>
+            <div class="row"><span>When</span><span id="qWhen">Pick a date and time</span></div>
+            <div class="row"><span>Contact by</span><span id="qMethod">WhatsApp</span></div>
+            <div class="tot"><span>Price</span><span id="qPrice"></span></div>
+            <small>Pay when your appointment is confirmed. Prices in Australian dollars.</small>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="reviews">
+      <h2>Client <em>reviews</em></h2>
+      <div class="empty-card">
+        <p>Real reviews will be shown here once clients have left them. Nothing here is made up.</p>
+        <div><a class="btn small" data-link="ig" target="_blank" rel="noopener">See the work on Instagram</a></div>
+      </div>
+    </section>
+
+    <section class="s" id="faq">
+      <h2>Frequently asked <em>questions</em></h2>
+      <p class="sub">Short answers to the usual questions.</p>
+      <details><summary>How do I book?</summary><p>Fill in the booking form above and send the request. You can also message House of Fades directly on WhatsApp, Instagram or SMS.</p></details>
+      <details><summary>Is my appointment confirmed straight away?</summary><p>No. The form sends a request. House of Fades confirms the date and time with you using the contact method you choose.</p></details>
+      <details><summary>What is the difference between the services?</summary><p>Standard Haircut is the cut only. Haircut + Enhancements and Haircut + Dye/Tint use products you bring yourself. Full Service uses House of Fades products for the whole job.</p></details>
+      <details><summary>Do you take bookings outside Orange?</summary><p>Yes. Requests are open across NSW, depending on your location. Add your suburb and postcode and you will be told if it can be done.</p></details>
+      <details><summary>How do I pay?</summary><p>Payment options are confirmed with you when your appointment is confirmed.</p></details>
+    </section>
+
+    <section class="s" id="area">
+      <h2>Service <em>area</em></h2>
+      <p class="sub">Based in Orange, with requests welcome across New South Wales.</p>
+      <div class="area">
+        <div class="box"><h3>Orange, NSW</h3><p>The home base for House of Fades. Local clients get first pick of available times.</p></div>
+        <div class="box"><h3>Across NSW</h3><p>Outside Orange? Send a request with your suburb and postcode. Availability depends on where you are.</p></div>
+      </div>
+    </section>
+
+    <section class="staff" id="staff" hidden>
+      <h2 style="font-family:var(--f-display);text-transform:uppercase;letter-spacing:.04em;font-size:36px;margin:0 0 12px">Booking requests</h2>
+      <div class="tablewrap"><table><thead><tr><th>Ref</th><th>Service</th><th>Date</th><th>Time</th><th>Name</th><th>Mobile</th><th>Suburb</th><th>Contact by</th><th>Notes</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+      <p class="note" id="rowsEmpty">No requests yet.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top">House of <b>Fades</b></a>
+    <div>Orange, NSW, Australia &middot; Bookings across NSW</div>
+    <div class="contact-row">
+      <a class="btn small" data-link="wa" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn small" data-link="ig" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn small" data-link="tt" target="_blank" rel="noopener">TikTok</a>
+      <a class="btn small" data-link="sms" href="sms:0466707688">SMS</a>
+    </div>
+  </footer>
+</div>
+
+<a class="fab" data-link="wa" target="_blank" rel="noopener" aria-label="Book on WhatsApp">WhatsApp booking</a>
+
+<script>
+(function () {
+  /* ---- Owner details: change values here and everything on the page updates ---- */
+  var CONTACT = {
+    whatsappDigits: '61466707688',
+    smsNumber: '0466707688',
+    smsDisplay: '0466 707 688',
+    instagram: 'houseoffades23',
+    tiktok: 'houseoffades23'
+  };
+  var SERVICES = [
+    { id: 'standard', name: 'Standard Haircut', price: 50, desc: 'A standard professional haircut.' },
+    { id: 'enhance', name: 'Haircut + Enhancements', price: 65, desc: "Haircut with enhancements using your own products." },
+    { id: 'tint', name: "Haircut + Your Own Dye/Tint", price: 100, desc: "Haircut and application of your own hair dye or tint." },
+    { id: 'full', name: 'Full House of Fades Experience', price: 120, desc: 'Complete haircut and enhancement service using House of Fades products.', top: true }
+  ];
+  var TIMES = [];
+  for (var m = 8 * 60; m <= 18 * 60; m += 30) TIMES.push(m);
+
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function label12(mins) { var h = Math.floor(mins / 60), mi = mins % 60, ap = h >= 12 ? 'pm' : 'am'; h = h % 12 || 12; return h + ':' + pad(mi) + ' ' + ap; }
+  function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function parseYmd(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function dateLabel(s) { return parseYmd(s).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); }
+  function byId(id) { return SERVICES.filter(function (s) { return s.id === id; })[0]; }
+
+  /* ---- links ---- */
+  var LINKS = {
+    wa: 'https://wa.me/' + CONTACT.whatsappDigits,
+    ig: 'https://ig.me/m/' + CONTACT.instagram,
+    tt: 'https://www.tiktok.com/@' + CONTACT.tiktok,
+    sms: 'sms:' + CONTACT.smsNumber
+  };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-link]'), function (a) {
+    var k = a.getAttribute('data-link');
+    a.setAttribute('href', LINKS[k]);
+    if (k === 'ig' && a.className.indexOf('small') < 0 && a.parentNode.className.indexOf('contact-row') >= 0) a.textContent = 'Instagram DM';
+  });
+
+  /* ---- pricing + select ---- */
+  $('priceCards').innerHTML = SERVICES.map(function (s) {
+    return '<div class="price' + (s.top ? ' top' : '') + '">' + (s.top ? '<span class="tag">Everything included</span>' : '') +
+      '<h3>' + esc(s.name) + '</h3><div class="amt">$' + s.price + '</div><p>' + esc(s.desc) + '</p>' +
+      '<a class="btn small" href="#booking" data-pick="' + s.id + '">Book this</a></div>';
+  }).join('');
+  $('service').innerHTML = SERVICES.map(function (s) { return '<option value="' + s.id + '">' + esc(s.name) + ' - $' + s.price + '</option>'; }).join('');
+  $('time').innerHTML = '<option value="">Select a time</option>' + TIMES.map(function (t) { return '<option value="' + t + '">' + label12(t) + '</option>'; }).join('');
+  var today = new Date();
+  $('date').min = ymd(today);
+  var max = new Date(today.getFullYear(), today.getMonth() + 4, today.getDate());
+  $('date').max = ymd(max);
+
+  document.addEventListener('click', function (e) {
+    var p = e.target.closest('[data-pick]');
+    if (p) { $('service').value = p.getAttribute('data-pick'); renderQuote(); }
+  });
+
+  function method() { var r = document.querySelector('input[name="method"]:checked'); return r ? r.value : 'WhatsApp'; }
+  function renderQuote() {
+    var s = byId($('service').value);
+    $('qService').textContent = s.name;
+    $('qPrice').textContent = '$' + s.price;
+    $('qMethod').textContent = method();
+    var d = $('date').value, t = $('time').value;
+    $('qWhen').textContent = d && t !== '' ? parseYmd(d).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' }) + ', ' + label12(+t) : 'Pick a date and time';
+  }
+  ['service', 'date', 'time'].forEach(function (id) { $(id).addEventListener('input', renderQuote); $(id).addEventListener('change', renderQuote); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="method"]'), function (r) { r.addEventListener('change', renderQuote); });
+  renderQuote();
+
+  /* ---- storage (shared, only when signed in) ---- */
+  var db = null, userId = null, canSave = false;
+  function newRef() { var c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s = 'HF-'; for (var i = 0; i < 5; i++) s += c[Math.floor(Math.random() * c.length)]; return s; }
+
+  $('form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var err = $('err'); err.textContent = '';
+    var name = $('name').value.trim(), phone = $('phone').value.trim(), suburb = $('suburb').value.trim(), pc = $('postcode').value.trim();
+    var d = $('date').value, t = $('time').value;
+    if (name.length < 2) { err.textContent = 'Enter your full name.'; $('name').focus(); return; }
+    if (phone.replace(/[^0-9]/g, '').length < 8) { err.textContent = 'Enter a mobile number we can reach you on.'; $('phone').focus(); return; }
+    if (suburb.length < 2) { err.textContent = 'Enter your suburb.'; $('suburb').focus(); return; }
+    if (!/^\d{4}$/.test(pc)) { err.textContent = 'Enter a 4 digit postcode.'; $('postcode').focus(); return; }
+    if (!d) { err.textContent = 'Choose your preferred date.'; $('date').focus(); return; }
+    if (d < ymd(new Date())) { err.textContent = 'Choose a date from today onwards.'; $('date').focus(); return; }
+    if (t === '') { err.textContent = 'Choose your preferred time.'; $('time').focus(); return; }
+    var s = byId($('service').value);
+    var req = { ref: newRef(), service: s.name, price: s.price, name: name, phone: phone, suburb: suburb, postcode: pc, date: d, time: label12(+t),
+      startsAt: d + 'T' + pad(Math.floor(+t / 60)) + ':' + pad(+t % 60), method: method(), notes: $('notes').value.trim(), createdAt: Date.now() };
+    var saved = false;
+    $('submit').disabled = true;
+    if (canSave) {
+      try {
+        var mine = db.doc('requests/' + userId);
+        var cur = await mine.get();
+        var items = cur.exists && cur.data().items ? JSON.parse(JSON.stringify(cur.data().items)) : {};
+        req.uid = userId; items[req.ref] = req;
+        await mine.set({ items: items });
+        saved = true;
+      } catch (x) { saved = false; }
+    }
+    showDone(req, saved);
+  });
+
+  function messageFor(r) {
+    return 'Hi House of Fades, I would like to request a booking.\n' +
+      'Reference: ' + r.ref + '\nService: ' + r.service + ' ($' + r.price + ')\n' +
+      'Preferred date: ' + dateLabel(r.date) + '\nPreferred time: ' + r.time + '\n' +
+      'Name: ' + r.name + '\nMobile: ' + r.phone + '\nSuburb: ' + r.suburb + ' ' + r.postcode + '\n' +
+      'Contact me by: ' + r.method + (r.notes ? '\nNotes: ' + r.notes : '');
+  }
+
+  function showDone(r, saved) {
+    var msg = messageFor(r), enc = encodeURIComponent(msg);
+    var primary = '';
+    if (r.method === 'WhatsApp') primary = '<a class="btn gold big" target="_blank" rel="noopener" href="https://wa.me/' + CONTACT.whatsappDigits + '?text=' + enc + '">Send on WhatsApp</a>';
+    else if (r.method === 'SMS') primary = '<a class="btn gold big" href="sms:' + CONTACT.smsNumber + '?&body=' + enc + '">Open SMS</a>';
+    else if (r.method === 'Instagram DM') primary = '<a class="btn gold big" target="_blank" rel="noopener" href="https://ig.me/m/' + CONTACT.instagram + '">Open Instagram</a>';
+    else primary = '<a class="btn gold big" href="sms:' + CONTACT.smsNumber + '">Number: ' + esc(CONTACT.smsDisplay) + '</a>';
+    var status = saved
+      ? '<p class="note ok">Your request has been logged with House of Fades. You will be contacted by ' + esc(r.method) + ' to confirm.</p>'
+      : '<p class="note">Your request is ready but has not reached House of Fades yet. Send it with the button below to finish.</p>';
+    $('bookArea').innerHTML = '<div class="done"><h3>Request ready</h3><div class="ref" aria-label="Request reference">' + esc(r.ref) + '</div>' + status +
+      '<dl><div><dt>Service</dt><dd>' + esc(r.service) + ' ($' + r.price + ')</dd></div><div><dt>Preferred</dt><dd>' + esc(dateLabel(r.date)) + ', ' + esc(r.time) + '</dd></div>' +
+      '<div><dt>Name</dt><dd>' + esc(r.name) + '</dd></div><div><dt>Mobile</dt><dd>' + esc(r.phone) + '</dd></div><div><dt>Suburb</dt><dd>' + esc(r.suburb) + ' ' + esc(r.postcode) + '</dd></div><div><dt>Contact by</dt><dd>' + esc(r.method) + '</dd></div></dl>' +
+      '<div class="actions">' + primary + '<button class="btn" id="copyMsg" type="button">Copy message</button></div>' +
+      '<label for="msgBox" class="note">Your message, in case a button does not open an app:</label><textarea id="msgBox" readonly></textarea>' +
+      '<p class="note">SMS number: ' + esc(CONTACT.smsDisplay) + '</p>' +
+      '<div><button class="btn small" id="another" type="button">Make another request</button></div></div>';
+    $('msgBox').value = msg;
+    $('copyMsg').addEventListener('click', function () {
+      var b = this;
+      function fallback() { $('msgBox').focus(); $('msgBox').select(); b.textContent = 'Press copy now'; }
+      try { navigator.clipboard.writeText(msg).then(function () { b.textContent = 'Copied'; }, fallback); } catch (x) { fallback(); }
+    });
+    $('another').addEventListener('click', function () { location.reload(); });
+    $('booking').scrollIntoView();
+  }
+
+  /* ---- owner list ---- */
+  function renderRows(list) {
+    var t = ymd(new Date());
+    var rows = list.filter(function (r) { return r.date >= t; });
+    window.__reqs = rows;
+    $('rowsEmpty').hidden = rows.length > 0;
+    $('rows').innerHTML = rows.map(function (r) {
+      return '<tr><td>' + esc(r.ref) + '</td><td>' + esc(r.service) + '</td><td>' + esc(r.date) + '</td><td>' + esc(r.time) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.phone) + '</td><td>' + esc(r.suburb) + ' ' + esc(r.postcode) + '</td><td>' + esc(r.method) + '</td><td>' + esc(r.notes || '') + '</td><td><button type="button" data-del="' + esc(r.ref) + '">Remove</button></td></tr>';
+    }).join('');
+  }
+  $('rows').addEventListener('click', async function (e) {
+    var ref = e.target.getAttribute('data-del');
+    if (!ref || !db) return;
+    var r = (window.__reqs || []).filter(function (x) { return x.ref === ref; })[0];
+    if (!r) return;
+    e.target.disabled = true;
+    try {
+      var doc = db.doc('requests/' + r.uid), snap = await doc.get();
+      var items = snap.exists && snap.data().items ? JSON.parse(JSON.stringify(snap.data().items)) : {};
+      delete items[ref];
+      if (Object.keys(items).length) await doc.set({ items: items }); else await doc.delete();
+    } catch (x) { e.target.disabled = false; }
+  });
+
+  (async function () {
+    var c = window.claude;
+    if (!c || !c.use) return;
+    try { db = await c.use('db'); } catch (x) { db = null; }
+    if (!db) return;
+    var user = null;
+    try { user = await c.use('user'); } catch (x) {}
+    try { userId = user ? await user.id() : null; } catch (x) {}
+    var can = null;
+    try { can = user ? await user.can('data.write') : null; } catch (x) {}
+    canSave = !!userId && can !== false;
+    var admin = false;
+    try { admin = user ? await user.canEdit() : false; } catch (x) {}
+    if (admin) {
+      $('staff').hidden = false;
+      db.collection('requests').limit(500).onSnapshot(function (snap) {
+        var all = [];
+        snap.docs.forEach(function (d) { var it = (d.data() || {}).items || {}; Object.keys(it).forEach(function (k) { all.push(it[k]); }); });
+        all.sort(function (a, b) { return a.startsAt < b.startsAt ? -1 : 1; });
+        renderRows(all);
+      }, function () {});
+    }
+  })();
+})();
+</script>
+
+</body>
+</html>
